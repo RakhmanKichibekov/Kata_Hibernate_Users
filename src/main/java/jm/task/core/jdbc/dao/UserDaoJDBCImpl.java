@@ -44,6 +44,8 @@ public class UserDaoJDBCImpl implements UserDao {
             preparedStatement.setString(2, lastName);
             preparedStatement.setByte(3, age);
             preparedStatement.executeUpdate();
+        } catch (SQLSyntaxErrorException e) {
+            e.getMessage();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -55,6 +57,8 @@ public class UserDaoJDBCImpl implements UserDao {
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             preparedStatement.setLong(1, id);
             preparedStatement.executeUpdate();
+        } catch (SQLSyntaxErrorException e) {
+            e.getMessage();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -76,6 +80,8 @@ public class UserDaoJDBCImpl implements UserDao {
 
                 userList.add(user);
             }
+        } catch (SQLSyntaxErrorException e) {
+            e.getMessage();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -87,6 +93,8 @@ public class UserDaoJDBCImpl implements UserDao {
         String sql = "TRUNCATE TABLE users";
         try (Statement statement = connection.createStatement()) {
             statement.executeUpdate(sql);
+        } catch (SQLSyntaxErrorException e) {
+            e.getMessage();
         } catch (SQLException e) {
             e.printStackTrace();
         }

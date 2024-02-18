@@ -18,8 +18,12 @@ public class UserServiceImpl implements UserService {
     }
 
     public void saveUser(String name, String lastName, byte age) throws SQLException {
+        int k = getAllUsers().size();
         userDaoJDBC.saveUser(name, lastName, age);
-        System.out.println("User с именем — " + name + " добавлен в базу данных");
+        int k1 = getAllUsers().size();
+        if (k1 > k) {
+            System.out.println("User с именем — " + name + " добавлен в базу данных");
+        }
     }
 
     public void removeUserById(long id) throws SQLException {
