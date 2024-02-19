@@ -19,8 +19,7 @@ public class UserServiceImpl implements UserService {
     public void saveUser(String name, String lastName, byte age) {
         int k = getAllUsers().size();
         userDaoJDBC.saveUser(name, lastName, age);
-        int k1 = getAllUsers().size();
-        if (k1 > k) {
+        if (getAllUsers().size() > k) {
             System.out.println("User с именем — " + name + " добавлен в базу данных");
         }
     }
