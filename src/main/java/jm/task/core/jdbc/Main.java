@@ -8,7 +8,7 @@ public class Main {
     public static final UserServiceImpl userService = new UserServiceImpl();
 
     public static void main(String[] args) throws SQLException {
-        userService.createUsersTable();
+        //userService.createUsersTable();
         userService.saveUser("Rahman", "Kichibekov", (byte) 21);
         userService.saveUser("Anton", "Petrov", (byte) 25);
         userService.saveUser("Igor", "Gunov", (byte) 21);

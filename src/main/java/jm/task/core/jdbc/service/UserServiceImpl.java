@@ -9,15 +9,15 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
     private static final UserDaoJDBCImpl userDaoJDBC = new UserDaoJDBCImpl();
 
-    public void createUsersTable() throws SQLException {
+    public void createUsersTable() {
         userDaoJDBC.createUsersTable();
     }
 
-    public void dropUsersTable() throws SQLException {
+    public void dropUsersTable() {
         userDaoJDBC.dropUsersTable();
     }
 
-    public void saveUser(String name, String lastName, byte age) throws SQLException {
+    public void saveUser(String name, String lastName, byte age) {
         int k = getAllUsers().size();
         userDaoJDBC.saveUser(name, lastName, age);
         int k1 = getAllUsers().size();
@@ -26,11 +26,11 @@ public class UserServiceImpl implements UserService {
         }
     }
 
-    public void removeUserById(long id) throws SQLException {
+    public void removeUserById(long id) {
         userDaoJDBC.removeUserById(id);
     }
 
-    public List<User> getAllUsers() throws SQLException {
+    public List<User> getAllUsers() {
         return userDaoJDBC.getAllUsers();
     }
 
